@@ -1,0 +1,48 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Phone contactbook API",
+        "description": "Phone contactbook API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/v1"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "$ref": "./components/security/main/apiKey.json"
+        }
+    },
+    "security": [],
+    "paths": {
+        "/registration": {
+            "post": { 
+                "$ref": "./paths/main/auth/registration.json" 
+            }
+        },
+        "/login": {
+            "post": { 
+                "$ref": "./paths/main/auth/login.json" 
+            }
+        },
+        
+        "/contacts": {
+            "post": { 
+                "$ref": "./paths/main/contacts/create.json" 
+            },
+            "get": { 
+                "$ref": "./paths/main/contacts/list.json" 
+            }
+        },
+        "/contacts/{id}": {
+            "patch": { 
+                "$ref": "./paths/main/contacts/update.json" 
+            },
+            "delete": { 
+                "$ref": "./paths/main/contacts/delete.json" 
+            }
+        }
+    }
+}
